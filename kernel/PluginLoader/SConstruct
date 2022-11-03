@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+env = SConscript("../../gdnative/godot-cpp/SConstruct")
+
+# tweak this if you want to use different folders, or more folders, to store your source code in.
+env.Append(CPPPATH=['/'])
+sources = Glob('*.cpp')
+
+library = env.SharedLibrary(
+    "../../bin/libPluginLoader.{}.{}.{}{}".format(
+        env["platform"], env["target"], env["arch_suffix"], env["SHLIBSUFFIX"]
+    ),
+    source=sources,
+)
+
+Default(library)
