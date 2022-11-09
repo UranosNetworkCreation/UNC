@@ -65,3 +65,7 @@ std::vector<NetworkKernelPluginInfo> PluginLoader::getAllPluginsInfo() {
 
     return result;
 }
+
+void PluginLoader::_register_methods() {
+    
+}

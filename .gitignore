@@ -1,4 +1,3 @@
-bin/
 kernel/PluginLoader/*.obj
 kernel/PluginLoader/*.dblite
 plugins/*.obj

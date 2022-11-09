@@ -1,0 +1,9 @@
+[gd_resource type="NativeScript" load_steps=2 format=2]
+
+[ext_resource path="res://lib/kernel/PluginLoader.gdnlib" type="GDNativeLibrary" id=1]
+
+[resource]
+
+resource_name = "PluginLoader"
+class_name = "PluginLoader"
+library = ExtResource( 1 )

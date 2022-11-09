@@ -9,8 +9,10 @@
 #include <OS.hpp>
 #include "../../plugins/NetworkKernelPlugin.h"
 
+//NOTE: PLUGINLOADER MUST BE REGISTERED AS SINGLETON!!!
+
 namespace godot {
-    class PluginLoader : godot::Object {
+    class PluginLoader : public godot::Object {
     GODOT_CLASS(PluginLoader, godot::Object)
     private:
         std::vector<NetworkKernelPlugin*> plugins;
