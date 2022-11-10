@@ -1,3 +1,4 @@
-kernel/PluginLoader/*.obj
-kernel/PluginLoader/*.dblite
-plugins/*.obj
+kernel/*.obj
+kernel/*.dblite
+plugins/UranosKernel/*.obj
+plugins/UranosKernel/*.dblite

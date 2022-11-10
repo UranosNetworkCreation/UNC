@@ -3,7 +3,7 @@
 
 #include "Godot.hpp"
 #include "Control.hpp"
-#include "../PluginLoader/PluginLoader.h"
+#include "PluginLoader.h"
 
 namespace godot {
     class Editor : public Control

@@ -5,7 +5,7 @@
 using namespace godot;
 
 void Editor::_register_methods() {
-    register_method("_ready", Editor::_ready);
+    register_method("_ready", &Editor::_ready);
 }
 
 void Editor::_ready() {

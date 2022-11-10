@@ -4,6 +4,6 @@
 
 [resource]
 
-resource_name = "PluginLoader"
-class_name = "PluginLoader"
+resource_name = "Editor"
+class_name = "Editor"
 library = ExtResource( 1 )

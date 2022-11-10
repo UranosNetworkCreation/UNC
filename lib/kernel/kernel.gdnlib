@@ -7,7 +7,7 @@ reloadable=false
 
 [entry]
 
-Windows.64="res://bin/libPluginLoader.windows.debug.64.dll"
+Windows.64="res://bin/libUNCKernel.windows.debug.64.dll"
 
 [dependencies]
 
