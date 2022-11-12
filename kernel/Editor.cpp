@@ -16,3 +16,11 @@ void Editor::_ready() {
         Godot::print(it->name);
     }
 }
+
+Editor::Editor() {
+
+}
+
+Editor::~Editor() {
+
+}

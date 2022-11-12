@@ -7,8 +7,8 @@ reloadable=false
 
 [entry]
 
-Windows.64="res://bin/libUranosKernel.windows.debug.dll"
+Windows.64="res://bin/libUranosKernel.windows.debug.64.dll"
 
 [dependencies]
 
-Windows.64=[]
+Windows.64=[  ]
