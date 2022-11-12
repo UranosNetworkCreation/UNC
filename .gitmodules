@@ -1,4 +1,4 @@
 [submodule "gdnative/godot-cpp"]
-	path = gdnative/godot-cpp
+	path = plugins/gdn/godot-cpp
 	url = https://github.com/godotengine/godot-cpp
 	branch = 3.5
