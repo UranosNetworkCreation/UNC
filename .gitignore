@@ -1,4 +1,0 @@
-kernel/*.obj
-kernel/*.dblite
-plugins/UranosKernel/*.obj
-plugins/UranosKernel/*.dblite
