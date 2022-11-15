@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="phantomID" type="Button"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0

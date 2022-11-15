@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gui/nodesContainer/preview.gd" type="Script" id=1]
+
+[node name="preview" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="preview" type="GraphEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 100 )
+use_snap = false
+minimap_enabled = false
+
+[node name="InputBlocker" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="mouseDragElement" type="Label" parent="."]
+visible = false
+margin_right = 99.0
+margin_bottom = 50.0
+text = "Add node"
+align = 1
+valign = 1

@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gui/gNode.gd" type="Script" id=1]
+
+[node name="INTSTR" type="GraphNode"]
+margin_right = 225.0
+margin_bottom = 80.0
+title = "int to string"
+show_close = true
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 3
+slot/1/right_color = Color( 0.780392, 0, 1, 1 )
+script = ExtResource( 1 )
+
+[node name="int" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 209.0
+margin_bottom = 38.0
+text = "int"
+
+[node name="str" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 39.0
+margin_right = 209.0
+margin_bottom = 53.0
+text = "str"
+align = 2

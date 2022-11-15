@@ -1,0 +1,7 @@
+TYPES:
+0: Data2D
+1: INT : Color 9b9b9b
+2: Data1D : Color ffffff
+3: STRING : Color c700ff
+4: CALL : Color 00edff
+5: AFuncPtr : Color ff0000

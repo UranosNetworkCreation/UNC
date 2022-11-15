@@ -11,11 +11,19 @@ config_version=4
 [application]
 
 config/name="UranosNetworkCreation"
+run/main_scene="res://kernel/main.tscn"
+boot_splash/image="res://assets/boot.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
 PluginLoader="*res://kernel/PluginLoader.gd"
+
+[display]
+
+window/size/height=576
+window/size/borderless=true
 
 [gui]
 
@@ -31,4 +39,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.172549, 0.164706, 0.196078, 1 )
 environment/default_environment="res://default_env.tres"

@@ -10,6 +10,8 @@ namespace godot
     class UranosKernel : public NetworkKernelPlugin {
         GODOT_CLASS(UranosKernel, NetworkKernelPlugin)
     public:
+    static void _register_methods();
+        void _init();
         NetworkKernelPluginInfo getInfo() override;
     };
 } // namespace godot

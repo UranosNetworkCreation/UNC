@@ -10,3 +10,11 @@ NetworkKernelPluginInfo UranosKernel::getInfo() {
         "Default network kernel"
     );
 }
+
+void UranosKernel::_init() {
+
+}
+
+void UranosKernel::_register_methods() {
+    register_method("_init", &UranosKernel::_init);
+}
