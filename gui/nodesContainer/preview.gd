@@ -62,6 +62,7 @@ func end_grabbing_node():
 		var LMPos = MainGraphEditor.get_local_mouse_position()
 		newENode.offset.x = LMPos.x + MainGraphEditor.scroll_offset.x
 		newENode.offset.y = LMPos.y + MainGraphEditor.scroll_offset.y
+		newENode.init_as_node()
 	$mouseDragElement.visible = false
 	addingNodeToGraph = false
 

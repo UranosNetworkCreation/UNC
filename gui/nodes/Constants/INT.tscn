@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://gui/gNode.gd" type="Script" id=1]
+[ext_resource path="res://gui/nodes/Constants/.INT.gd" type="Script" id=1]
 
 [node name="INT" type="GraphNode"]
 margin_right = 198.0
@@ -14,9 +14,11 @@ slot/0/right_enabled = true
 slot/0/right_type = 1
 slot/0/right_color = Color( 0.607843, 0.607843, 0.607843, 1 )
 script = ExtResource( 1 )
+slotCount = 1
 
 [node name="SpinBox" type="SpinBox" parent="."]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 182.0
 margin_bottom = 48.0
+max_value = 256.0

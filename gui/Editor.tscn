@@ -7,6 +7,7 @@
 [ext_resource path="res://gui/Graph.gd" type="Script" id=5]
 [ext_resource path="res://gui/MenuBar.gd" type="Script" id=6]
 [ext_resource path="res://gui/NodesContainer.gd" type="Script" id=7]
+[ext_resource path="res://gui/Inspector.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
@@ -22,11 +23,6 @@ region = Rect2( 350, 350, 50, 50 )
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 50, 300, 50, 50 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 200, 250, 50, 50 )
 
 [node name="Editor" type="Control"]
 anchor_right = 1.0
@@ -95,42 +91,36 @@ size_flags_vertical = 0
 alignment = 2
 
 [node name="run" type="TextureButton" parent="MenuBar/HBoxContainer"]
-margin_right = 50.0
+margin_left = 54.0
+margin_right = 104.0
 margin_bottom = 50.0
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 1 )
 
 [node name="rsettings" type="TextureButton" parent="MenuBar/HBoxContainer"]
-margin_left = 54.0
-margin_right = 104.0
-margin_bottom = 50.0
-mouse_default_cursor_shape = 2
-texture_normal = SubResource( 2 )
-
-[node name="addnode" type="TextureButton" parent="MenuBar/HBoxContainer"]
 margin_left = 108.0
 margin_right = 158.0
 margin_bottom = 50.0
 mouse_default_cursor_shape = 2
-texture_normal = SubResource( 3 )
+texture_normal = SubResource( 2 )
 
 [node name="Right" type="HBoxContainer" parent="MenuBar"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -311.0
 margin_top = 5.0
-margin_right = -90.0
+margin_right = -62.0
 margin_bottom = 35.0
 alignment = 2
 
 [node name="OptionButton" type="OptionButton" parent="MenuBar/Right"]
-margin_left = 106.0
-margin_right = 221.0
+margin_left = 134.0
+margin_right = 249.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 100, 0 )
 hint_tooltip = "AI Kernel"
 text = "UranosKernel"
-items = [ "UranosKernel", null, false, 0, null, "Keras", null, false, 1, null ]
+items = [ "UranosKernel", null, false, 0, null ]
 selected = 0
 
 [node name="GraphEdit" type="GraphEdit" parent="."]
@@ -138,8 +128,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 260.0
 margin_top = 50.0
-margin_right = -10.0
+margin_right = -260.0
 margin_bottom = -10.0
+scroll_offset = Vector2( -264, 0 )
 script = ExtResource( 5 )
 
 [node name="AddNodeDialog" type="WindowDialog" parent="."]
@@ -187,7 +178,63 @@ anchor_bottom = 1.0
 tab_align = 0
 script = ExtResource( 7 )
 
-[connection signal="pressed" from="MenuBar/HBoxContainer/addnode" to="MenuBar" method="_on_addnode_pressed"]
+[node name="Inspector" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -249.0
+margin_top = 50.0
+margin_right = -10.0
+margin_bottom = -12.0
+script = ExtResource( 8 )
+
+[node name="TabContainer" type="TabContainer" parent="Inspector"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+
+[node name="Output" type="Tabs" parent="Inspector/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inspector/TabContainer/Output"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inspector/TabContainer/Output/VBoxContainer"]
+margin_right = 221.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="Inspector/TabContainer/Output/VBoxContainer/HBoxContainer"]
+margin_right = 86.0
+margin_bottom = 14.0
+text = "Last updated:"
+
+[node name="value" type="Label" parent="Inspector/TabContainer/Output/VBoxContainer/HBoxContainer"]
+margin_left = 90.0
+margin_right = 221.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+autowrap = true
+
+[node name="Training" type="Tabs" parent="Inspector/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[connection signal="pressed" from="MenuBar/HBoxContainer/run" to="." method="_on_run_pressed"]
 [connection signal="connection_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_connection_request"]
 [connection signal="delete_nodes_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_delete_nodes_request"]
 [connection signal="about_to_show" from="AddNodeDialog" to="AddNodeDialog" method="_on_AddNodeDialog_about_to_show"]

@@ -17,14 +17,22 @@ func _ready():
 
 
 func _on_GraphEdit_connection_request(from:String, from_slot:int, to:String, to_slot:int):
-	#for con in get_node("GraphEdit").get_connection_list():
-	#	if con.to == to and con.to_slot == to_slot:
-	#		return
-	connect_node(from, from_slot, to, to_slot)
+	for con in get_connection_list():
+		if con.to == to and con.to_port == to_slot:
+			print("[Graph] Exit from connection request process. Warning: You can't double connect nodes")
+			return
+	print("[Graph] Connect nodes(from: ", from, ", from_slot: ", from_slot, ", to: ", to, ", to_slot: ", to_slot, "): ", connect_node(from, from_slot, to, to_slot))
 
 
 func _on_GraphEdit_delete_nodes_request(nodes:Array):
 	print("[GraphEdit] Del nodes ...")
 	for node in nodes:
 		print("[GraphEdit] Del node " + node)
+		remove_connections_to_node(node)
 		get_node(node).queue_free()
+
+func remove_connections_to_node(node_path):
+	var node = get_node(node_path)
+	for con in get_connection_list():
+		if con.to == node.name or con.from == node.name:
+			disconnect_node(con.from, con.from_port, con.to, con.to_port)

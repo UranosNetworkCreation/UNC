@@ -34,3 +34,6 @@ func _on_scene_loaded():
 	OS.window_borderless = false
 	OS.center_window()
 	OS.window_maximized = true
+
+func _on_run_pressed():
+	Executer.exeCurrentLoaded()
