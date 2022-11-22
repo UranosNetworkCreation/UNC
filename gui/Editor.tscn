@@ -40,6 +40,7 @@ script = ExtResource( 6 )
 SettingsDialogPath = NodePath("../SettingsDialog")
 SaveAsDialogPath = NodePath("../SaveAs")
 EditorPath = NodePath("..")
+MsgPath = NodePath("../Status/HBoxContainer/BaseMsg")
 
 [node name="Left" type="HBoxContainer" parent="MenuBar"]
 margin_left = 5.0
@@ -141,10 +142,11 @@ selected = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 45.0
+margin_bottom = -30.0
 
 [node name="SideBar" type="Control" parent="HSplitContainer"]
 margin_right = 240.0
-margin_bottom = 531.0
+margin_bottom = 501.0
 rect_min_size = Vector2( 240, 0 )
 
 [node name="TabContainer" type="TabContainer" parent="HSplitContainer/SideBar"]
@@ -156,19 +158,19 @@ script = ExtResource( 7 )
 [node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer"]
 margin_left = 248.0
 margin_right = 1024.0
-margin_bottom = 531.0
+margin_bottom = 501.0
 
 [node name="GraphEdit" type="GraphEdit" parent="HSplitContainer/HSplitContainer"]
 margin_right = 588.0
-margin_bottom = 531.0
+margin_bottom = 501.0
 size_flags_horizontal = 3
-scroll_offset = Vector2( -300, 0 )
+scroll_offset = Vector2( -300, -2 )
 script = ExtResource( 5 )
 
 [node name="Inspector" type="Control" parent="HSplitContainer/HSplitContainer"]
 margin_left = 596.0
 margin_right = 776.0
-margin_bottom = 531.0
+margin_bottom = 501.0
 rect_min_size = Vector2( 180, 0 )
 script = ExtResource( 8 )
 
@@ -225,6 +227,23 @@ margin_right = 954.0
 margin_bottom = 519.0
 window_title = "Datei speichern"
 access = 2
+
+[node name="Status" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -23.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Status"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_right = -5.0
+
+[node name="BaseMsg" type="Label" parent="Status/HBoxContainer"]
+margin_right = 46.0
+margin_bottom = 22.0
+text = "Ready"
 
 [connection signal="pressed" from="MenuBar/HBoxContainer/run" to="." method="_on_run_pressed"]
 [connection signal="connection_request" from="HSplitContainer/HSplitContainer/GraphEdit" to="HSplitContainer/HSplitContainer/GraphEdit" method="_on_GraphEdit_connection_request"]

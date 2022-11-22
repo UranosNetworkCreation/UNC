@@ -3,9 +3,11 @@ extends Panel
 export var SettingsDialogPath : NodePath
 export var SaveAsDialogPath : NodePath
 export var EditorPath : NodePath
+export var MsgPath : NodePath
 
 var SettingsDialog : Popup
 var SaveAsDialog : Popup
+var Msg : Label
 
 var MainEditor
 
@@ -39,6 +41,7 @@ func _ready():
 	SettingsDialog = get_node(SettingsDialogPath)
 	SaveAsDialog = get_node(SaveAsDialogPath)
 	MainEditor = get_node(EditorPath)
+	Msg = get_node(MsgPath)
 
 	print("[MenuBar] Connect with file btn: ", FileMenuBtn.get_popup().connect("id_pressed", self, "on_file_id_pressed"))
 	print("[MenuBar] Connect with view btn: ", ViewMenuBtn.get_popup().connect("id_pressed", self, "on_view_id_pressed"))
@@ -55,6 +58,7 @@ func on_file_id_pressed(var idx : int):
 				SaveAsDialog.popup_centered()
 			else:
 				MainEditor.save_current(currentPath)
+				Msg.text = "File saved to \"" + currentPath + "\""
 		FILE_SAVEAS:
 			SaveAsDialog.popup_centered()
 
@@ -71,4 +75,5 @@ func on_edit_id_pressed(var idx : int):
 func _on_SaveAs_file_selected(path:String):
 	currentPath = path
 	MainEditor.save_current(currentPath)
+	Msg.text = "File saved to \"" + currentPath + "\""
 	
