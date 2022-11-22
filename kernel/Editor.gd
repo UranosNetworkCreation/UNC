@@ -7,10 +7,14 @@ extends Control
 
 var pixel = null
 signal scene_loaded
+var GEdit : GraphEdit
+
+const UNCFile = preload("resources/unc.gd")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GEdit = get_node("HSplitContainer/HSplitContainer/GraphEdit")
 	PluginLoader.loadPlugins()
 	print("[Editor] Connecting signal: ", connect("scene_loaded", self, "_on_scene_loaded"))
 
@@ -41,10 +45,12 @@ func _on_run_pressed():
 func file_new():
 	pass
 
-func save_current():
-	pass
-
-func save_current_as():
+func save_current(path):
+	#var file = UNCFile.new()
+	#var GEditPacked = PackedScene.new()
+	#GEditPacked.pack(GEdit)
+	#file.GEdit = GEditPacked
+	#print("[Editor] Save file to \"", path, "\": ", ResourceSaver.save(path, file))
 	pass
 
 func open_file(path):

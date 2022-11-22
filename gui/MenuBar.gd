@@ -1,8 +1,13 @@
 extends Panel
 
 export var SettingsDialogPath : NodePath
+export var SaveAsDialogPath : NodePath
+export var EditorPath : NodePath
 
 var SettingsDialog : Popup
+var SaveAsDialog : Popup
+
+var MainEditor
 
 var FileMenuBtn : MenuButton
 var NetworkMenuBtn : MenuButton
@@ -19,8 +24,12 @@ const FILE_OPEN 	= 1
 const FILE_SAVE 	= 2
 const FILE_SAVEAS 	= 3
 
+var currentPath : String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	currentPath = ""
+
 	FileMenuBtn = get_node("Left/File")
 	NetworkMenuBtn = get_node("Left/Network")
 	ViewMenuBtn = get_node("Left/View")
@@ -28,6 +37,8 @@ func _ready():
 	HelpMenuBtn = get_node("Left/Help")
 
 	SettingsDialog = get_node(SettingsDialogPath)
+	SaveAsDialog = get_node(SaveAsDialogPath)
+	MainEditor = get_node(EditorPath)
 
 	print("[MenuBar] Connect with file btn: ", FileMenuBtn.get_popup().connect("id_pressed", self, "on_file_id_pressed"))
 	print("[MenuBar] Connect with view btn: ", ViewMenuBtn.get_popup().connect("id_pressed", self, "on_view_id_pressed"))
@@ -40,9 +51,12 @@ func on_file_id_pressed(var idx : int):
 		FILE_OPEN:
 			pass
 		FILE_SAVE:
-			pass
+			if(currentPath == ""):
+				SaveAsDialog.popup_centered()
+			else:
+				MainEditor.save_current(currentPath)
 		FILE_SAVEAS:
-			pass
+			SaveAsDialog.popup_centered()
 
 func on_view_id_pressed(var idx : int):
 	match(idx):
@@ -53,3 +67,8 @@ func on_edit_id_pressed(var idx : int):
 	match(idx):
 		EDIT_SETTINGS:
 			SettingsDialog.popup_centered()
+
+func _on_SaveAs_file_selected(path:String):
+	currentPath = path
+	MainEditor.save_current(currentPath)
+	

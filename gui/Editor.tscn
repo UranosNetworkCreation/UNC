@@ -38,6 +38,8 @@ rect_min_size = Vector2( 0, 40 )
 custom_styles/panel = SubResource( 4 )
 script = ExtResource( 6 )
 SettingsDialogPath = NodePath("../SettingsDialog")
+SaveAsDialogPath = NodePath("../SaveAs")
+EditorPath = NodePath("..")
 
 [node name="Left" type="HBoxContainer" parent="MenuBar"]
 margin_left = 5.0
@@ -218,6 +220,13 @@ margin_bottom = -4.0
 
 [node name="SettingsDialog" parent="." instance=ExtResource( 4 )]
 
+[node name="SaveAs" type="FileDialog" parent="."]
+margin_right = 954.0
+margin_bottom = 519.0
+window_title = "Datei speichern"
+access = 2
+
 [connection signal="pressed" from="MenuBar/HBoxContainer/run" to="." method="_on_run_pressed"]
 [connection signal="connection_request" from="HSplitContainer/HSplitContainer/GraphEdit" to="HSplitContainer/HSplitContainer/GraphEdit" method="_on_GraphEdit_connection_request"]
 [connection signal="delete_nodes_request" from="HSplitContainer/HSplitContainer/GraphEdit" to="HSplitContainer/HSplitContainer/GraphEdit" method="_on_GraphEdit_delete_nodes_request"]
+[connection signal="file_selected" from="SaveAs" to="MenuBar" method="_on_SaveAs_file_selected"]
