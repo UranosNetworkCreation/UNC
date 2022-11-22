@@ -3,9 +3,12 @@
 [ext_resource path="res://gui/nodes/Output/.print.gd" type="Script" id=1]
 
 [node name="print" type="GraphNode"]
-margin_right = 250.0
-margin_bottom = 64.0
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 249.0
+margin_bottom = 71.0
 rect_pivot_offset = Vector2( -302, -96 )
+custom_constants/separation = 5
 title = "Output: String"
 show_close = true
 slot/0/left_enabled = true

@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://gui/gNode.gd" type="Script" id=1]
+[ext_resource path="res://gui/nodes/Convert/.DATA2D_DATA1D.gd" type="Script" id=1]
 
 [node name="input" type="GraphNode"]
 margin_right = 243.0
 margin_bottom = 120.0
 custom_constants/separation = 5
-title = "Input2D"
+title = "Data2D to Data1D"
 show_close = true
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -39,6 +39,7 @@ slot/4/right_enabled = true
 slot/4/right_type = 1
 slot/4/right_color = Color( 0.607843, 0.607843, 0.607843, 1 )
 script = ExtResource( 1 )
+slotCount = 5
 
 [node name="Data2D" type="Label" parent="."]
 margin_left = 16.0

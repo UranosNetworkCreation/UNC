@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://gui/gNode.gd" type="Script" id=1]
+[ext_resource path="res://gui/nodes/Convert/.DATA1D_STR.gd" type="Script" id=1]
 
 [node name="DATA1D_STR" type="GraphNode"]
 margin_right = 257.0
@@ -21,6 +21,7 @@ slot/1/right_enabled = true
 slot/1/right_type = 3
 slot/1/right_color = Color( 0.780392, 0, 1, 1 )
 script = ExtResource( 1 )
+slotCount = 2
 
 [node name="Data1D" type="Label" parent="."]
 margin_left = 16.0

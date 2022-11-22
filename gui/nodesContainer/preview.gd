@@ -52,7 +52,7 @@ func addNode(node, packed):
 
 func begin_grabbing_node(node):
 	addingNodeToGraph = true
-	$mouseDragElement.visible = true
+	$Canvas/mouseDragElement.visible = true
 	currentEditorNode = node
 
 func end_grabbing_node():
@@ -63,16 +63,16 @@ func end_grabbing_node():
 		newENode.offset.x = LMPos.x + MainGraphEditor.scroll_offset.x
 		newENode.offset.y = LMPos.y + MainGraphEditor.scroll_offset.y
 		newENode.init_as_node()
-	$mouseDragElement.visible = false
+	$Canvas/mouseDragElement.visible = false
 	addingNodeToGraph = false
 
 func _process(_delta):
-	if($mouseDragElement.visible):
-		$mouseDragElement.rect_position = get_local_mouse_position()
+	if($Canvas/mouseDragElement.visible):
+		$Canvas/mouseDragElement.rect_position = get_local_mouse_position()
 		if(isMouseInEditor()):
-			$mouseDragElement.modulate.a = 1.0
+			$Canvas/mouseDragElement.modulate.a = 1.0
 		else:
-			$mouseDragElement.modulate.a = 0.5
+			$Canvas/mouseDragElement.modulate.a = 0.5
 
 func _on_window_size_changed():
 	$preview.scroll_offset = Vector2(0, 0)

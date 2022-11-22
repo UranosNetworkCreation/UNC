@@ -19,10 +19,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
 
-[node name="mouseDragElement" type="Label" parent="."]
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="mouseDragElement" type="Label" parent="Canvas"]
 visible = false
-margin_right = 99.0
-margin_bottom = 50.0
+margin_right = 100.0
+margin_bottom = 197.0
 text = "Add node"
 align = 1
 valign = 1

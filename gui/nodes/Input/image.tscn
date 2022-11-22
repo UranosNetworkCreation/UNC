@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://gui/gNode.gd" type="Script" id=1]
+[ext_resource path="res://gui/nodes/Input/.image.gd" type="Script" id=1]
 
 [node name="image" type="GraphNode"]
 margin_right = 281.0
-margin_bottom = 61.0
+margin_bottom = 254.0
 custom_constants/separation = 5
 title = "Image"
 show_close = true
@@ -12,8 +12,8 @@ slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 0.854902, 1, 0, 1 )
+slot/0/right_type = 2
+slot/0/right_color = Color( 1, 1, 1, 1 )
 slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color( 1, 1, 1, 1 )
@@ -26,7 +26,26 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = true
 slot/2/right_type = 1
 slot/2/right_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 7
+slot/3/right_color = Color( 1, 0.67451, 0, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 8
+slot/4/right_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
+slotCount = 5
 
 [node name="LineEdit" type="LineEdit" parent="."]
 margin_left = 16.0
@@ -50,3 +69,29 @@ margin_right = 265.0
 margin_bottom = 86.0
 text = "SizeY"
 align = 2
+
+[node name="Format" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 91.0
+margin_right = 265.0
+margin_bottom = 105.0
+text = "Format"
+align = 2
+
+[node name="Mipmaps" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 110.0
+margin_right = 265.0
+margin_bottom = 124.0
+text = "GenMipmaps"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 16.0
+margin_top = 129.0
+margin_right = 265.0
+margin_bottom = 248.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6

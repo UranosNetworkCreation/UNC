@@ -1,0 +1,24 @@
+{
+  "themes": [
+    {
+      "name": "arc_dark",
+      "dir": "addons/arc_dark"
+    },
+    {
+      "name": "arc_light",
+      "dir": "addons/arc_light"
+    },
+    {
+      "name": "adobe",
+      "dir": "addons/adobe"
+    },
+    {
+      "name": "adobe_dark",
+      "dir": "addons/adobe_dark"
+    },
+    {
+      "name": "adobe_light",
+      "dir": "addons/adobe_light"
+    }
+  ]
+}

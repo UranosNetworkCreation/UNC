@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gui/nodes/Output/.image.gd" type="Script" id=1]
+
+[node name="imageOutput" type="GraphNode"]
+margin_right = 304.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( -316, 10 )
+title = "Output: Image"
+show_close = true
+slot/0/left_enabled = true
+slot/0/left_type = 2
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 1
+slot/1/left_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 1
+slot/2/left_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 7
+slot/3/left_color = Color( 1, 0.67451, 0, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = true
+slot/4/left_type = 8
+slot/4/left_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+slotCount = 5
+
+[node name="Data2D" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 288.0
+margin_bottom = 38.0
+text = "Data1D"
+
+[node name="SizeX" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 39.0
+margin_right = 288.0
+margin_bottom = 53.0
+text = "SizeX"
+
+[node name="SizeY" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 54.0
+margin_right = 288.0
+margin_bottom = 68.0
+text = "SizeY"
+
+[node name="Format" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 69.0
+margin_right = 288.0
+margin_bottom = 83.0
+text = "Format"
+
+[node name="Mipmaps" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 84.0
+margin_right = 288.0
+margin_bottom = 98.0
+text = "GenMipmaps"

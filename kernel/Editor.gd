@@ -37,3 +37,15 @@ func _on_scene_loaded():
 
 func _on_run_pressed():
 	Executer.exeCurrentLoaded()
+
+func file_new():
+	pass
+
+func save_current():
+	pass
+
+func save_current_as():
+	pass
+
+func open_file(path):
+	pass

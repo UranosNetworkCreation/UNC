@@ -1,0 +1,243 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://kernel/Editor.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons.png" type="Texture" id=2]
+[ext_resource path="res://assets/theme.tres" type="Theme" id=3]
+[ext_resource path="res://gui/AddNodeDialog.gd" type="Script" id=4]
+[ext_resource path="res://gui/Graph.gd" type="Script" id=5]
+[ext_resource path="res://gui/MenuBar.gd" type="Script" id=6]
+[ext_resource path="res://gui/NodesContainer.gd" type="Script" id=7]
+[ext_resource path="res://gui/Inspector.gd" type="Script" id=8]
+[ext_resource path="res://assets/themes/theme-aestro-godot/aestro.tres" type="Theme" id=9]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
+border_width_bottom = 1
+border_color = Color( 0.337255, 0.329412, 0.356863, 1 )
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 350, 350, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 50, 300, 50, 50 )
+
+[node name="Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -290, -31 )
+theme = ExtResource( 9 )
+script = ExtResource( 1 )
+
+[node name="MenuBar" type="Panel" parent="."]
+anchor_right = 1.0
+rect_min_size = Vector2( 0, 40 )
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 6 )
+
+[node name="Left" type="HBoxContainer" parent="MenuBar"]
+margin_left = 5.0
+margin_right = 327.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="File" type="MenuButton" parent="MenuBar/Left"]
+margin_right = 39.0
+margin_bottom = 40.0
+focus_mode = 2
+theme = ExtResource( 3 )
+text = "File"
+align = 0
+items = [ "New", null, 0, false, false, 0, 0, null, "", false, "Open", null, 0, false, false, 1, 0, null, "", false, "Save", null, 0, false, false, 2, 0, null, "", false, "Save as ...", null, 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Quit", null, 0, false, false, 5, 0, null, "", false ]
+
+[node name="Network" type="MenuButton" parent="MenuBar/Left"]
+margin_left = 43.0
+margin_right = 112.0
+margin_bottom = 40.0
+focus_mode = 2
+text = "Network"
+align = 0
+items = [ "Generate code ...", null, 0, false, false, 0, 0, null, "", false ]
+
+[node name="View" type="MenuButton" parent="MenuBar/Left"]
+margin_left = 116.0
+margin_right = 162.0
+margin_bottom = 40.0
+focus_mode = 2
+text = "View"
+align = 0
+items = [ "Toogle fullscreen", null, 0, false, false, 0, 0, null, "", false ]
+
+[node name="Help" type="MenuButton" parent="MenuBar/Left"]
+margin_left = 166.0
+margin_right = 212.0
+margin_bottom = 40.0
+focus_mode = 2
+text = "Help"
+align = 0
+items = [ "About", null, 0, false, false, 0, 0, null, "", false ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuBar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -86.0
+margin_top = 7.0
+margin_right = 72.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.5, 0.5 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 2
+
+[node name="run" type="TextureButton" parent="MenuBar/HBoxContainer"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+mouse_default_cursor_shape = 2
+texture_normal = SubResource( 1 )
+
+[node name="rsettings" type="TextureButton" parent="MenuBar/HBoxContainer"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 50.0
+mouse_default_cursor_shape = 2
+texture_normal = SubResource( 2 )
+
+[node name="Right" type="HBoxContainer" parent="MenuBar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -311.0
+margin_top = 5.0
+margin_right = -62.0
+margin_bottom = 35.0
+alignment = 2
+
+[node name="OptionButton" type="OptionButton" parent="MenuBar/Right"]
+margin_left = 135.0
+margin_right = 249.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 100, 0 )
+hint_tooltip = "AI Kernel"
+text = "UranosKernel"
+items = [ "UranosKernel", null, false, 0, null ]
+selected = 0
+
+[node name="AddNodeDialog" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = -63.0
+margin_right = 175.0
+margin_bottom = 82.0
+window_title = "Add node"
+script = ExtResource( 4 )
+
+[node name="ItemList" type="ItemList" parent="AddNodeDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -38.0
+
+[node name="Button" type="Button" parent="AddNodeDialog"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -31.0
+margin_right = 19.0
+margin_bottom = -5.0
+disabled = true
+text = "Add"
+
+[node name="SideBar" type="Control" parent="."]
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = -12.0
+
+[node name="TabContainer" type="TabContainer" parent="SideBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+script = ExtResource( 7 )
+
+[node name="Inspector" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -249.0
+margin_top = 50.0
+margin_right = -10.0
+margin_bottom = -12.0
+script = ExtResource( 8 )
+
+[node name="TabContainer" type="TabContainer" parent="Inspector"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+
+[node name="Output" type="Tabs" parent="Inspector/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inspector/TabContainer/Output"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inspector/TabContainer/Output/VBoxContainer"]
+margin_right = 219.0
+margin_bottom = 22.0
+
+[node name="Label" type="Label" parent="Inspector/TabContainer/Output/VBoxContainer/HBoxContainer"]
+margin_right = 94.0
+margin_bottom = 22.0
+text = "Last updated:"
+
+[node name="value" type="Label" parent="Inspector/TabContainer/Output/VBoxContainer/HBoxContainer"]
+margin_left = 98.0
+margin_right = 219.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+autowrap = true
+
+[node name="Training" type="Tabs" parent="Inspector/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 260.0
+margin_top = 50.0
+margin_right = -260.0
+margin_bottom = -10.0
+script = ExtResource( 5 )
+
+[connection signal="pressed" from="MenuBar/HBoxContainer/run" to="." method="_on_run_pressed"]
+[connection signal="about_to_show" from="AddNodeDialog" to="AddNodeDialog" method="_on_AddNodeDialog_about_to_show"]
+[connection signal="item_selected" from="AddNodeDialog/ItemList" to="AddNodeDialog" method="_on_ItemList_item_selected"]
+[connection signal="pressed" from="AddNodeDialog/Button" to="AddNodeDialog" method="_on_Button_pressed"]
+[connection signal="connection_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_connection_request"]
+[connection signal="delete_nodes_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_delete_nodes_request"]

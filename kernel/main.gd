@@ -9,4 +9,4 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	OS.center_window()
-	get_tree().change_scene("res://gui/Editor.tscn")
+	print("[Main] Load Editor: ", get_tree().change_scene("res://gui/Editor.tscn"))

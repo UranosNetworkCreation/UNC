@@ -1,4 +1,4 @@
-extends Panel
+extends "output.gd"
 
 
 # Declare member variables here. Examples:
@@ -12,4 +12,4 @@ func _ready():
 
 
 func set_value(value):
-	$HBoxContainer/value.text = value
+	$ScrollContainer/VBoxContainer/value.text = value

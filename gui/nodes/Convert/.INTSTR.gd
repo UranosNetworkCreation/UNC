@@ -9,5 +9,4 @@ func _ready():
 
 
 func updateCalc():
-	print("Merge Strings ...")
 	outputs = [str(getDataOfPinConn(INT_INPUT))]

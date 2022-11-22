@@ -1,7 +1,10 @@
 TYPES:
-0: Data2D
+0: Data2D : Color daff00
 1: INT : Color 9b9b9b
 2: Data1D : Color ffffff
 3: STRING : Color c700ff
 4: CALL : Color 00edff
 5: AFuncPtr : Color ff0000
+6: LayerPtr : Color 3be028
+7: ImageFormat : Color ffac00
+8: Boolean : Color 505050

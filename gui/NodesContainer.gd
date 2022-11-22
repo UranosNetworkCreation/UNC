@@ -25,7 +25,7 @@ func _ready():
 			add_child(newTab)
 			var pContainer = newTab.getNodeContainer()
 			var nPreview = basePreview.instance()
-			nPreview.setGEditor(get_node("../../GraphEdit"))
+			nPreview.setGEditor(get_node("../../HSplitContainer/GraphEdit"))
 			pContainer.add_child(nPreview)
 			var FolderScanner = Directory.new()
 			FolderScanner.open("res://gui/nodes/" + file.get_basename())
@@ -44,9 +44,9 @@ func _ready():
 					lNodeInst.set_size(Vector2(180, lNodeInst.get_rect().size.y))
 					lNodeInst.offset.x = 22
 					lNodeInst.offset.y = OffsetY
+					nPreview.addNode(lNodeInst, lNode)
 					OffsetY += lNodeInst.get_rect().size.y + 10
 					#lNodeInst.set_position(Vector2(10, 10))
-					nPreview.addNode(lNodeInst, lNode)
 					print("[NodesContainer] Loading done.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
