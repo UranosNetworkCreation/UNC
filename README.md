@@ -6,5 +6,5 @@
 - Design an own visual ai-lang
 
 ## Notes
-The base structure of the program is slowly being completed. A small visualisation for interested people (Contains only themost importent parts of the code):
+The base structure of the program is slowly being completed. A small visualisation for interested people (Contains only the most importent parts of the code):
 ![Graph](https://raw.githubusercontent.com/UranosNetworkCreation/UranosNetworkCreaton/main/dev-base-graph.png)
