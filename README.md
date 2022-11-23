@@ -9,6 +9,6 @@
 The base structure of the program is slowly being completed. A small visualisation for interested people (Contains only the most importent parts of the code):
 ![Graph](https://raw.githubusercontent.com/UranosNetworkCreation/UranosNetworkCreaton/main/dev-base-graph.png)
 
-## Screenshots
+## Screenshots (incomplete)
 ### Base input/output
 ![BaseInputOutput](https://raw.githubusercontent.com/UranosNetworkCreation/UranosNetworkCreaton/main/examples/baseOutputInput.png)
