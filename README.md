@@ -1,4 +1,4 @@
-# UranosNetworkCreaton
+# UranosNetworkCreation
 
 ## The plan
 - Design a fast program to create neural networks in gdnative.
