@@ -12,3 +12,9 @@ The base structure of the program is slowly being completed. A small visualisati
 ## Screenshots (incomplete)
 ### Base input/output
 ![BaseInputOutput](https://raw.githubusercontent.com/UranosNetworkCreation/UranosNetworkCreaton/main/examples/baseOutputInput.png)
+
+## Third-party / Credits
+- Godot Engine contributors
+- Geequlim (godot-themes)
+
+[Complete list and detailed information](https://github.com/UranosNetworkCreation/UranosNetworkCreaton/blob/main/THIRDPARTY.md)
