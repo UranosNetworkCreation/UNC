@@ -3,11 +3,8 @@
 [ext_resource path="res://gui/nodes/Output/.print.gd" type="Script" id=1]
 
 [node name="print" type="GraphNode"]
-margin_left = -1.0
-margin_top = -1.0
 margin_right = 249.0
 margin_bottom = 71.0
-rect_pivot_offset = Vector2( -302, -96 )
 custom_constants/separation = 5
 title = "Output: String"
 show_close = true
@@ -23,6 +20,6 @@ slotCount = 1
 [node name="str" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 234.0
+margin_right = 233.0
 margin_bottom = 38.0
 text = "string"

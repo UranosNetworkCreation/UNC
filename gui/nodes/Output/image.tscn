@@ -5,7 +5,6 @@
 [node name="imageOutput" type="GraphNode"]
 margin_right = 304.0
 margin_bottom = 100.0
-rect_pivot_offset = Vector2( -316, 10 )
 title = "Output: Image"
 show_close = true
 slot/0/left_enabled = true

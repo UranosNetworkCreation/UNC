@@ -24,3 +24,5 @@ func loadPlugins():
 func _ready():
 	DirInst = Directory.new()
 
+func getCurrentPlugin():
+	return plugins[0]

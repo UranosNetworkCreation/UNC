@@ -1,4 +1,5 @@
 extends Resource
 
-export var conns : Array
-export var gNodes : Array
+class_name UNCBaseFileFormat
+
+export var GData : Resource

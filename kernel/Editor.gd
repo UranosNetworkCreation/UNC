@@ -10,6 +10,8 @@ signal scene_loaded
 var GEdit : GraphEdit
 
 const UNCFile = preload("resources/unc.gd")
+const NodeData = preload("resources/node.gd")
+const GraphData = preload("resources/graphData.gd")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -45,13 +47,21 @@ func _on_run_pressed():
 func file_new():
 	pass
 
-func save_current(path):
-	#var file = UNCFile.new()
-	#var GEditPacked = PackedScene.new()
-	#GEditPacked.pack(GEdit)
-	#file.GEdit = GEditPacked
-	#print("[Editor] Save file to \"", path, "\": ", ResourceSaver.save(path, file))
-	pass
+func save_current(path) -> int:
+	var file : UNCFile = UNCFile.new()
+	file.GData = GEdit.getData()
+	return ResourceSaver.save(path, file)
 
-func open_file(path):
-	pass
+func resetEditor():
+	GEdit.reset()
+
+func open_file(path) -> int:
+	var file = ResourceLoader.load(path)
+	if(!(file is UNCFile)):
+		print("Cannot load file because it's not an UNCFile")
+		return -1
+	
+	resetEditor()
+	print("[Editor] Load gEdit data ...")
+	GEdit.loadData(file.GData)
+	return 0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://gui/gNode.gd" type="Script" id=1]
+[ext_resource path="res://gui/nodes/Layers/.SimpleLayer.gd" type="Script" id=1]
 
 [node name="Layer" type="GraphNode"]
 margin_right = 255.0
@@ -33,13 +33,14 @@ slot/3/right_enabled = true
 slot/3/right_type = 2
 slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
+slotCount = 4
 
 [node name="Input" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 24.0
 margin_right = 239.0
 margin_bottom = 38.0
-text = "Input (LayerPtr)"
+text = "Input (Data1D)"
 
 [node name="Size" type="Label" parent="."]
 margin_left = 16.0
@@ -60,5 +61,5 @@ margin_left = 16.0
 margin_top = 81.0
 margin_right = 239.0
 margin_bottom = 95.0
-text = "Result (LayerPtr)"
+text = "Result (Data1D)"
 align = 2

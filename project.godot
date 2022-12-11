@@ -8,12 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "UNCBaseFileFormat",
+"language": "GDScript",
+"path": "res://kernel/resources/unc.gd"
+}, {
+"base": "Resource",
+"class": "UNC_GraphData",
+"language": "GDScript",
+"path": "res://kernel/resources/graphData.gd"
+}, {
+"base": "Resource",
+"class": "UNC_gNode",
+"language": "GDScript",
+"path": "res://kernel/resources/node.gd"
+} ]
+_global_script_class_icons={
+"UNCBaseFileFormat": "",
+"UNC_GraphData": "",
+"UNC_gNode": ""
+}
+
 [application]
 
 config/name="UranosNetworkCreation"
 run/main_scene="res://kernel/main.tscn"
 boot_splash/image="res://assets/boot.png"
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
+boot_splash/bg_color=Color( 0.0509804, 0.0509804, 0.0509804, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -40,5 +62,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0.0235294, 0.0235294, 0.0235294, 1 )
+environment/default_clear_color=Color( 0.0509804, 0.0509804, 0.0509804, 1 )
 environment/default_environment="res://default_env.tres"

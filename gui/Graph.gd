@@ -1,19 +1,10 @@
 extends GraphEdit
 
+const GraphData = preload("res://kernel/resources/graphData.gd")
+const NodeData = preload("res://kernel/resources/node.gd")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	pass
 
 
 func _on_GraphEdit_connection_request(from:String, from_slot:int, to:String, to_slot:int):
@@ -33,6 +24,50 @@ func _on_GraphEdit_delete_nodes_request(nodes:Array):
 
 func remove_connections_to_node(node_path):
 	var node = get_node(node_path)
-	for con in get_connection_list():
-		if con.to == node.name or con.from == node.name:
-			disconnect_node(con.from, con.from_port, con.to, con.to_port)
+	for conn in get_connection_list():
+		if conn.to == node.name or conn.from == node.name:
+			disconnect_node(conn.from, conn.from_port, conn.to, conn.to_port)
+
+func getData() -> GraphData:
+	var gData : GraphData = GraphData.new()
+
+	for child in get_children():
+		if child is GraphNode:
+			print("[Editor][Save] Collect node data ...")
+			gData.nodes.append(child.getNodeData())
+
+	gData.conns = get_connection_list()
+	return gData
+
+func updateConnectionNodeName(var old : String, var new : String, var conns : Array) -> Array:
+	var result : Array = []
+	for conn in conns:
+		var nconn = conn
+		if(nconn.from == old):
+			nconn.from = new
+		if(nconn.to == old):
+			nconn.to = new
+		result.append(nconn)
+	return result
+
+func loadData(var data : GraphData):
+	for node in data.nodes:
+		print("[Editor][OpenFile] Creating node with type: " + node.type)
+		var nodeInst = load(node.type).instance()
+		nodeInst.offset = node.offset
+		nodeInst.name = node.name
+		add_child(nodeInst)
+		nodeInst.init_as_node(node.type)
+		nodeInst.DataSync.loadData(node.data)
+		data.conns = updateConnectionNodeName(node.name, nodeInst.name, data.conns)
+
+	for conn in data.conns:
+		print("[Editor][OpenFile] Conn nodes: ", connect_node(conn.from, conn.from_port, conn.to, conn.to_port))
+
+func reset():
+	print("[GEdit] resetting  ...")
+	clear_connections()
+	for child in get_children():
+		if child is GraphNode:
+			child.queue_free()
+			remove_child(child)

@@ -41,14 +41,14 @@ func removeAllVChilds():
 		#get_node("Viewport").remove_child(child)
 		print(child)
 
-func addNode(node, packed):
+func addNode(node, packedPth : String):
 	#removeAllVChilds()
 	$preview.add_child(node)
 	var phantomID = phantomIDPreset.instance()
 	phantomID.rect_position = node.offset
 	phantomID.rect_size = node.get_rect().size
 	$InputBlocker.add_child(phantomID)
-	node.init_as_preview(phantomID, self, packed)
+	node.init_as_preview(phantomID, self, packedPth)
 
 func begin_grabbing_node(node):
 	addingNodeToGraph = true
@@ -62,7 +62,7 @@ func end_grabbing_node():
 		var LMPos = MainGraphEditor.get_local_mouse_position()
 		newENode.offset.x = LMPos.x + MainGraphEditor.scroll_offset.x
 		newENode.offset.y = LMPos.y + MainGraphEditor.scroll_offset.y
-		newENode.init_as_node()
+		newENode.init_as_node(currentEditorNode.packedPath)
 	$Canvas/mouseDragElement.visible = false
 	addingNodeToGraph = false
 

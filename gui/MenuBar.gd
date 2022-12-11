@@ -2,11 +2,13 @@ extends Panel
 
 export var SettingsDialogPath : NodePath
 export var SaveAsDialogPath : NodePath
+export var FileOpenDialogPath : NodePath
 export var EditorPath : NodePath
 export var MsgPath : NodePath
 
 var SettingsDialog : Popup
 var SaveAsDialog : Popup
+var FileOpenDialog : Popup
 var Msg : Label
 
 var MainEditor
@@ -40,6 +42,7 @@ func _ready():
 
 	SettingsDialog = get_node(SettingsDialogPath)
 	SaveAsDialog = get_node(SaveAsDialogPath)
+	FileOpenDialog = get_node(FileOpenDialogPath)
 	MainEditor = get_node(EditorPath)
 	Msg = get_node(MsgPath)
 
@@ -50,9 +53,9 @@ func _ready():
 func on_file_id_pressed(var idx : int):
 	match(idx):
 		FILE_NEW:
-			pass
+			MainEditor.resetEditor()
 		FILE_OPEN:
-			pass
+			FileOpenDialog.popup_centered()
 		FILE_SAVE:
 			if(currentPath == ""):
 				SaveAsDialog.popup_centered()
@@ -77,3 +80,10 @@ func _on_SaveAs_file_selected(path:String):
 	MainEditor.save_current(currentPath)
 	Msg.text = "File saved to \"" + currentPath + "\""
 	
+
+func _on_OpenFile_file_selected(path:String):
+	if(MainEditor.open_file(path) != -1):
+		currentPath = path
+		Msg.text = "File opened from \"" + currentPath + "\""
+	else:
+		Msg.text = "Cannot open file \"" + path + "\""

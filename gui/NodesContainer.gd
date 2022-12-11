@@ -44,7 +44,7 @@ func _ready():
 					lNodeInst.set_size(Vector2(180, lNodeInst.get_rect().size.y))
 					lNodeInst.offset.x = 22
 					lNodeInst.offset.y = OffsetY
-					nPreview.addNode(lNodeInst, lNode)
+					nPreview.addNode(lNodeInst, lNodePath)
 					OffsetY += lNodeInst.get_rect().size.y + 10
 					#lNodeInst.set_position(Vector2(10, 10))
 					print("[NodesContainer] Loading done.")

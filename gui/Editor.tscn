@@ -39,6 +39,7 @@ custom_styles/panel = SubResource( 4 )
 script = ExtResource( 6 )
 SettingsDialogPath = NodePath("../SettingsDialog")
 SaveAsDialogPath = NodePath("../SaveAs")
+FileOpenDialogPath = NodePath("../OpenFile")
 EditorPath = NodePath("..")
 MsgPath = NodePath("../Status/HBoxContainer/BaseMsg")
 
@@ -227,6 +228,15 @@ margin_right = 954.0
 margin_bottom = 519.0
 window_title = "Datei speichern"
 access = 2
+filters = PoolStringArray( "*.res", "*.tres" )
+
+[node name="OpenFile" type="FileDialog" parent="."]
+margin_right = 954.0
+margin_bottom = 519.0
+window_title = "Datei öffnen"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.res", "*.tres" )
 
 [node name="Status" type="Panel" parent="."]
 anchor_top = 1.0
@@ -249,3 +259,4 @@ text = "Ready"
 [connection signal="connection_request" from="HSplitContainer/HSplitContainer/GraphEdit" to="HSplitContainer/HSplitContainer/GraphEdit" method="_on_GraphEdit_connection_request"]
 [connection signal="delete_nodes_request" from="HSplitContainer/HSplitContainer/GraphEdit" to="HSplitContainer/HSplitContainer/GraphEdit" method="_on_GraphEdit_delete_nodes_request"]
 [connection signal="file_selected" from="SaveAs" to="MenuBar" method="_on_SaveAs_file_selected"]
+[connection signal="file_selected" from="OpenFile" to="MenuBar" method="_on_OpenFile_file_selected"]
