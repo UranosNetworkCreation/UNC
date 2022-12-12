@@ -4,7 +4,7 @@
 
 [node name="NormalizeData1D" type="GraphNode"]
 margin_right = 257.0
-margin_bottom = 74.0
+margin_bottom = 128.0
 custom_constants/separation = 5
 title = "Normalize Data1D"
 show_close = true

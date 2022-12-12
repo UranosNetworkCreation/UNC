@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://assets/themeCollection.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+paths = [ "res://assets/themes/theme-aestro-godot/aestro.tres", "res://assets/themes/jc.godot.plane-editor-theme-main/Themes/SteelCore/Default/steel-core.tres", "res://assets/themes/Godot-Windows-10-Theme-master/themes/windows_10_dark_modified/win10darkmodified.tres", "res://assets/themes/Godot-Windows-10-Theme-master/themes/windows_10_light_modified/win10light_modified.tres" ]
+optimized = [ true, true, false, false ]

@@ -4,7 +4,7 @@
 
 [node name="INTSTR" type="GraphNode"]
 margin_right = 225.0
-margin_bottom = 80.0
+margin_bottom = 114.0
 title = "int to string"
 show_close = true
 slot/0/left_enabled = true

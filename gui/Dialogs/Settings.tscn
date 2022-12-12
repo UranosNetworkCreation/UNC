@@ -11,11 +11,15 @@ margin_right = -20.0
 margin_bottom = -20.0
 window_title = "Settings"
 script = ExtResource( 1 )
+ThemeOptionButtonPath = NodePath("TabContainer/Display/GridContainer/ThemeOptionBtn")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -45.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
 tab_align = 0
 
 [node name="Display" type="Tabs" parent="TabContainer"]
@@ -29,14 +33,46 @@ margin_bottom = -4.0
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Display"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+columns = 2
 
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="ThemeLbl" type="Label" parent="TabContainer/Display/GridContainer"]
+margin_right = 742.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 90 )
+size_flags_horizontal = 3
+text = "Theme:"
+
+[node name="ThemeOptionBtn" type="OptionButton" parent="TabContainer/Display/GridContainer"]
+margin_left = 746.0
+margin_right = 946.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="TabContainer/Display/GridContainer/ThemeOptionBtn"]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -20.0
-margin_top = -33.0
-margin_right = 21.0
-margin_bottom = -10.0
-text = "Save"
+margin_left = 1.0
+margin_top = 37.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 0.803922, 0.568627, 0.0705882, 1 )
+text = "Warning: The selected theme is not full optimized for the software yet and may bug at some points."
+autowrap = true
+
+[node name="HighDpiLbl" type="Label" parent="TabContainer/Display/GridContainer"]
+margin_top = 107.0
+margin_right = 742.0
+margin_bottom = 121.0
+text = "Allow high dpi"
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Display/GridContainer"]
+margin_left = 746.0
+margin_top = 94.0
+margin_right = 946.0
+margin_bottom = 134.0
+
+[connection signal="item_selected" from="TabContainer/Display/GridContainer/ThemeOptionBtn" to="." method="_on_ThemeOptionBtn_item_selected"]

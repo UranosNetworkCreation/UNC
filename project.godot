@@ -42,6 +42,7 @@ config/icon="res://icon.png"
 
 PluginLoader="*res://kernel/PluginLoader.gd"
 Executer="*res://kernel/Executer.gd"
+BaseFuncs="*res://kernel/BaseFuncs.gd"
 
 [display]
 

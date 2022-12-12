@@ -4,7 +4,7 @@
 
 [node name="input" type="GraphNode"]
 margin_right = 243.0
-margin_bottom = 120.0
+margin_bottom = 166.0
 custom_constants/separation = 5
 title = "Data2D to Data1D"
 show_close = true

@@ -4,7 +4,7 @@
 
 [node name="DATA1D_STR" type="GraphNode"]
 margin_right = 257.0
-margin_bottom = 74.0
+margin_bottom = 102.0
 custom_constants/separation = 5
 title = "Data1D to string"
 show_close = true

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/Basic/gNodeSelector.gd" type="Script" id=1]
+[ext_resource path="res://gui/Basic/mouseFollower.gd" type="Script" id=2]
+[ext_resource path="res://assets/icons.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 56.572, 8.79106, 37.8947, 33.6842 )
+
+[node name="gNodeSelector" type="HBoxContainer"]
+margin_right = 241.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_right = 217.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+editable = false
+
+[node name="selectBtn" type="TextureButton" parent="."]
+margin_left = 221.0
+margin_right = 241.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Assign node"
+mouse_default_cursor_shape = 2
+texture_normal = SubResource( 1 )
+expand = true
+
+[node name="SelectLabel" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="SelectLabel"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Select node"
+script = ExtResource( 2 )
+
+[connection signal="button_down" from="selectBtn" to="." method="_on_selectBtn_button_down"]

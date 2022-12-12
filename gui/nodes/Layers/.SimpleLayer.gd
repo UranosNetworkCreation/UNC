@@ -26,19 +26,31 @@ func init_editor_controls():
 	var result : PoolRealArray = CurrentPlugin.simple_layer_call(OutputLayer, hiddenLayerResult, 0)
 
 	print(result)
+	print("Train AI ...")
 
 	for i in range(100):
 		hiddenLayerResult = CurrentPlugin.simple_layer_call(HiddenLayer, [0.5, 0.5, 0.0, 0.0], 0)
 		result = CurrentPlugin.simple_layer_call(OutputLayer, hiddenLayerResult, 0)
 		var resultWeights : Array = CurrentPlugin.get_layer_weights(OutputLayer)
 		#print("Backprop ...")
-		var resultGradient = CurrentPlugin.backprop_layer(OutputLayer, [0.0, 0.0], PoolRealArray(), 0, true, 1.0)
+		var resultGradient = CurrentPlugin.backprop_layer(OutputLayer, [1.0, 0.0], PoolRealArray(), 0, true, 1.0)
 		var hiddenLayerGradient = CurrentPlugin.backprop_layer(HiddenLayer, resultGradient, resultWeights, 0, false, 1.0)
+		#print("backProp done!")
+
+		hiddenLayerResult = CurrentPlugin.simple_layer_call(HiddenLayer, [0.0, 0.0, 0.5, 0.5], 0)
+		result = CurrentPlugin.simple_layer_call(OutputLayer, hiddenLayerResult, 0)
+		resultWeights = CurrentPlugin.get_layer_weights(OutputLayer)
+		#print("Backprop ...")
+		resultGradient = CurrentPlugin.backprop_layer(OutputLayer, [0.0, 1.0], PoolRealArray(), 0, true, 1.0)
+		hiddenLayerGradient = CurrentPlugin.backprop_layer(HiddenLayer, resultGradient, resultWeights, 0, false, 1.0)
 		#print("backProp done!")
 
 	hiddenLayerResult = CurrentPlugin.simple_layer_call(HiddenLayer, [0.5, 0.5, 0.0, 0.0], 0)
 	result = CurrentPlugin.simple_layer_call(OutputLayer, hiddenLayerResult, 0)
+	print(result)
 
+	hiddenLayerResult = CurrentPlugin.simple_layer_call(HiddenLayer, [0.0, 0.0, 0.5, 0.5], 0)
+	result = CurrentPlugin.simple_layer_call(OutputLayer, hiddenLayerResult, 0)
 	print(result)
 
 func hasShapeChanged():
