@@ -168,17 +168,17 @@ margin_right = 1024.0
 margin_bottom = 501.0
 
 [node name="GraphEdit" type="GraphEdit" parent="HSplitContainer/HSplitContainer"]
-margin_right = 528.0
+margin_right = 498.0
 margin_bottom = 501.0
 size_flags_horizontal = 3
 scroll_offset = Vector2( -300, -2 )
 script = ExtResource( 5 )
 
 [node name="Inspector" type="Control" parent="HSplitContainer/HSplitContainer"]
-margin_left = 536.0
+margin_left = 506.0
 margin_right = 776.0
 margin_bottom = 501.0
-rect_min_size = Vector2( 240, 0 )
+rect_min_size = Vector2( 270, 0 )
 script = ExtResource( 8 )
 
 [node name="TabContainer" type="TabContainer" parent="HSplitContainer/HSplitContainer/Inspector"]
@@ -203,7 +203,7 @@ margin_right = -5.0
 margin_bottom = -5.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/Inspector/TabContainer/Output/VBoxContainer"]
-margin_right = 220.0
+margin_right = 250.0
 margin_bottom = 22.0
 
 [node name="Label" type="Label" parent="HSplitContainer/HSplitContainer/Inspector/TabContainer/Output/VBoxContainer/HBoxContainer"]
@@ -213,7 +213,7 @@ text = "Last updated:"
 
 [node name="value" type="Label" parent="HSplitContainer/HSplitContainer/Inspector/TabContainer/Output/VBoxContainer/HBoxContainer"]
 margin_left = 98.0
-margin_right = 220.0
+margin_right = 250.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 autowrap = true
@@ -237,7 +237,7 @@ margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/HSplitContainer/Inspector/TabContainer/Training/ScrollContainer"]
-margin_right = 210.0
+margin_right = 240.0
 margin_bottom = 8.0
 size_flags_horizontal = 3
 

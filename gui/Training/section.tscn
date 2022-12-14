@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/icons.png" type="Texture" id=1]
 [ext_resource path="res://gui/Training/section.gd" type="Script" id=2]
 [ext_resource path="res://gui/Basic/gNodeSelector.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/Basic/mouseFollower.gd" type="Script" id=4]
+[ext_resource path="res://gui/Training/DatasetEditor.gd" type="Script" id=5]
+[ext_resource path="res://gui/Graph.gd" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -14,10 +17,91 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 403.562, 405.363, 42.1053, 41.0526 )
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 100.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:anchor_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 80.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "flow"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 80.0, 0.0 ]
+}
+
 [node name="section" type="Panel"]
-margin_right = 693.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 0, 200 )
+margin_top = 100.0
+margin_right = 659.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 180 )
+rect_rotation = 80.0
 size_flags_horizontal = 3
 script = ExtResource( 2 )
 
@@ -31,25 +115,51 @@ margin_bottom = 34.0
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 672.0
-margin_bottom = 27.0
+margin_right = 638.0
+margin_bottom = 31.0
+
+[node name="IterationsLabel" type="Label" parent="Panel/HBoxContainer"]
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 19.0
+text = "Iterations:"
+
+[node name="Iterations" type="SpinBox" parent="Panel/HBoxContainer"]
+margin_left = 70.0
+margin_right = 144.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 10000.0
+value = 1.0
+
+[node name="VSeparator" type="VSeparator" parent="Panel/HBoxContainer"]
+margin_left = 148.0
+margin_right = 152.0
+margin_bottom = 24.0
 
 [node name="train" type="TextureButton" parent="Panel/HBoxContainer"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
+margin_left = 156.0
+margin_top = 3.0
+margin_right = 174.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 18, 18 )
 hint_tooltip = "Start training"
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 texture_normal = SubResource( 1 )
 expand = true
 
 [node name="delete" type="TextureButton" parent="Panel/HBoxContainer"]
-margin_left = 24.0
-margin_right = 44.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
+margin_left = 178.0
+margin_top = 3.0
+margin_right = 196.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 18, 18 )
 hint_tooltip = "Delete node"
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 texture_normal = SubResource( 2 )
 expand = true
 
@@ -62,38 +172,118 @@ margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
-margin_right = 673.0
+margin_right = 639.0
 margin_bottom = 52.0
 columns = 2
 
 [node name="StartPointLbl" type="Label" parent="VBoxContainer/GridContainer"]
 margin_top = 5.0
-margin_right = 335.0
+margin_right = 318.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "Start point: "
 
 [node name="StartPointSelector" parent="VBoxContainer/GridContainer" instance=ExtResource( 3 )]
-margin_left = 339.0
-margin_right = 673.0
+margin_left = 322.0
+margin_right = 639.0
 margin_bottom = 24.0
 
 [node name="EndPointLbl" type="Label" parent="VBoxContainer/GridContainer"]
 margin_top = 33.0
-margin_right = 335.0
+margin_right = 318.0
 margin_bottom = 47.0
 size_flags_horizontal = 3
 text = "End point: "
 
 [node name="EndPointSelector" parent="VBoxContainer/GridContainer" instance=ExtResource( 3 )]
-margin_left = 339.0
+margin_left = 322.0
 margin_top = 28.0
-margin_right = 673.0
+margin_right = 639.0
 margin_bottom = 52.0
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 56.0
-margin_right = 673.0
+margin_right = 639.0
 margin_bottom = 60.0
 
+[node name="EditData" type="Button" parent="VBoxContainer"]
+margin_left = 268.0
+margin_top = 64.0
+margin_right = 371.0
+margin_bottom = 84.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Edit dataset ..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "flow"
+anims/RESET = SubResource( 4 )
+anims/flow = SubResource( 3 )
+
+[node name="DatasetEditor" type="WindowDialog" parent="."]
+margin_right = 869.0
+margin_bottom = 416.0
+popup_exclusive = true
+window_title = "Dataset editor"
+resizable = true
+script = ExtResource( 5 )
+SectionPth = NodePath("..")
+AddNodeMFollowerPth = NodePath("AddNodeMouseFollower/Label")
+
+[node name="Panel" type="Panel" parent="DatasetEditor"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 44.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DatasetEditor/Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 5.0
+margin_top = -10.0
+margin_bottom = 10.0
+
+[node name="AddInput" type="Button" parent="DatasetEditor/Panel/HBoxContainer"]
+margin_right = 110.0
+margin_bottom = 20.0
+text = "Add input node"
+
+[node name="AddOutput" type="Button" parent="DatasetEditor/Panel/HBoxContainer"]
+margin_left = 114.0
+margin_right = 233.0
+margin_bottom = 20.0
+text = "Add output node"
+
+[node name="GraphEdit" type="GraphEdit" parent="DatasetEditor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 47.0
+margin_right = -10.0
+margin_bottom = -10.0
+script = ExtResource( 6 )
+
+[node name="AddNodeMouseFollower" type="CanvasLayer" parent="DatasetEditor"]
+
+[node name="Label" type="Label" parent="DatasetEditor/AddNodeMouseFollower"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Add node"
+script = ExtResource( 4 )
+
+[node name="InvalidNodeWarning" type="AcceptDialog" parent="."]
+margin_right = 108.0
+margin_bottom = 58.0
+window_title = "Alert"
+dialog_text = "Please select valid nodes for the start point and end point first."
+
+[connection signal="pressed" from="Panel/HBoxContainer/train" to="." method="_on_train_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="VBoxContainer/EditData" to="." method="_on_EditData_pressed"]
+[connection signal="about_to_show" from="DatasetEditor" to="DatasetEditor" method="_on_DatasetEditor_about_to_show"]
+[connection signal="button_down" from="DatasetEditor/Panel/HBoxContainer/AddInput" to="DatasetEditor" method="_on_AddInput_button_down"]
+[connection signal="button_down" from="DatasetEditor/Panel/HBoxContainer/AddOutput" to="DatasetEditor" method="_on_AddOutput_button_down"]
+[connection signal="connection_request" from="DatasetEditor/GraphEdit" to="DatasetEditor/GraphEdit" method="_on_GraphEdit_connection_request"]
+[connection signal="delete_nodes_request" from="DatasetEditor/GraphEdit" to="DatasetEditor/GraphEdit" method="_on_GraphEdit_delete_nodes_request"]

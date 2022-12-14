@@ -3,8 +3,8 @@
 [ext_resource path="res://gui/nodes/Output/.image.gd" type="Script" id=1]
 
 [node name="imageOutput" type="GraphNode"]
-margin_right = 304.0
-margin_bottom = 100.0
+margin_right = 245.0
+margin_bottom = 270.0
 title = "Output: Image"
 show_close = true
 slot/0/left_enabled = true
@@ -37,40 +37,66 @@ slot/4/left_color = Color( 0.313726, 0.313726, 0.313726, 1 )
 slot/4/right_enabled = false
 slot/4/right_type = 0
 slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
 slotCount = 5
 
 [node name="Data2D" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 288.0
+margin_right = 229.0
 margin_bottom = 38.0
 text = "Data1D"
 
 [node name="SizeX" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 39.0
-margin_right = 288.0
+margin_right = 229.0
 margin_bottom = 53.0
 text = "SizeX"
 
 [node name="SizeY" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 54.0
-margin_right = 288.0
+margin_right = 229.0
 margin_bottom = 68.0
 text = "SizeY"
 
 [node name="Format" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 69.0
-margin_right = 288.0
+margin_right = 229.0
 margin_bottom = 83.0
 text = "Format"
 
 [node name="Mipmaps" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 84.0
-margin_right = 288.0
+margin_right = 229.0
 margin_bottom = 98.0
 text = "GenMipmaps"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_left = 16.0
+margin_top = 99.0
+margin_right = 229.0
+margin_bottom = 103.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 104.0
+margin_right = 229.0
+margin_bottom = 169.0
+text = "Note: This node does actually not work in the Dataset editor and will not work when you try to train the network."
+autowrap = true

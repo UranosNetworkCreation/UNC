@@ -1,4 +1,4 @@
-extends "../../gNode.gd"
+extends "../.Output.gd"
 
 const STRING_INPUT = 0
 var OutputPreset

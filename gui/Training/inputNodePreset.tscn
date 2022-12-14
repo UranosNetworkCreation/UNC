@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gui/Training/datasetNode.gd" type="Script" id=1]
+
+[node name="inputNodePreset" type="GraphNode"]
+margin_right = 302.0
+margin_bottom = 79.0
+title = "input"
+show_close = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 286.0
+margin_bottom = 38.0
+text = "Output"
+align = 2
+
+[connection signal="close_request" from="." to="." method="_on_close_request"]

@@ -1,4 +1,4 @@
-extends "../../gNode.gd"
+extends "../.Input.gd"
 
 
 const OUTPUT_DATA2D = 0

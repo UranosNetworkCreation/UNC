@@ -8,15 +8,10 @@ var NumInput : SpinBox
 func _ready():
 	NumInput = get_node("SpinBox")
 
-func DivArray(arr, div : float):
-	var result : PoolRealArray = PoolRealArray()
-	for item in arr:
-		var itemf : float = item
-		var divresult : float = itemf/div
-		result.append(divresult)
-
-	return result
+func backCalc():
+	var result = BaseFuncs.MultiplyArray(getDataOfPinConn(DATA1D_OUTPUT, true), NumInput.value)
+	backCalcResults = [result]
 
 func updateCalc():
-	var result : PoolRealArray = DivArray(getDataOfPinConn(DATA1D_INPUT), NumInput.value)
+	var result : PoolRealArray = BaseFuncs.DivArray(getDataOfPinConn(DATA1D_INPUT), NumInput.value)
 	outputs = [result]

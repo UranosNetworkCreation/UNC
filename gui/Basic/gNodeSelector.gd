@@ -22,6 +22,9 @@ func _process(_delta):
 func _on_selectBtn_button_down():
 	selectLbl.grap()
 
+func is_gNodevalid():
+	return (getValue() != "" && GEdit.get_node_or_null(getValue()) != null)
+
 func _on_selection_done():
 	if(!BaseFuncs.touch_mouse(GEdit.get_global_rect())):
 		return
@@ -31,3 +34,9 @@ func _on_selection_done():
 				LEdit.text = child.name
 				emit_signal("gNodeSelected", child)
 				return
+
+func getValue():
+	return LEdit.text
+
+func getSelectedNode():
+	return GEdit.get_node(LEdit.text)

@@ -1,0 +1,115 @@
+[gd_resource type="Resource" load_steps=13 format=2]
+
+[ext_resource path="res://kernel/resources/node.gd" type="Script" id=1]
+[ext_resource path="res://kernel/resources/graphData.gd" type="Script" id=2]
+[ext_resource path="res://kernel/resources/unc.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Input/image.tscn"
+offset = Vector2( -220, 100 )
+data = [ "C:\\Users\\Henry\\OneDrive\\Desktop\\UNCTest\\rect.png" ]
+name = "image"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/Normalize.tscn"
+offset = Vector2( 80, 180 )
+data = [ 255.0 ]
+name = "NormalizeData1D"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( -198, 460 )
+data = [ 100.0 ]
+name = "INT"
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Activation/Sigmoid.tscn"
+offset = Vector2( -200, 580 )
+data = [  ]
+name = "Sigmoid"
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 360, 260 )
+data = [  ]
+name = "Layer"
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 360, 440 )
+data = [  ]
+name = "Layer1289"
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/DATA1D_STR.tscn"
+offset = Vector2( 640, 620 )
+data = [  ]
+name = "DATA1D_STR"
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Output/print.tscn"
+offset = Vector2( 720, 460 )
+data = [  ]
+name = "print"
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 2 )
+nodes = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]
+conns = [ {
+"from": "image",
+"from_port": 0,
+"to": "NormalizeData1D",
+"to_port": 0
+}, {
+"from": "NormalizeData1D",
+"from_port": 0,
+"to": "Layer",
+"to_port": 0
+}, {
+"from": "INT",
+"from_port": 0,
+"to": "Layer",
+"to_port": 1
+}, {
+"from": "Sigmoid",
+"from_port": 0,
+"to": "Layer",
+"to_port": 2
+}, {
+"from": "Layer",
+"from_port": 0,
+"to": "Layer1289",
+"to_port": 0
+}, {
+"from": "INT",
+"from_port": 0,
+"to": "Layer1289",
+"to_port": 1
+}, {
+"from": "Sigmoid",
+"from_port": 0,
+"to": "Layer1289",
+"to_port": 2
+}, {
+"from": "DATA1D_STR",
+"from_port": 0,
+"to": "print",
+"to_port": 0
+}, {
+"from": "Layer1289",
+"from_port": 0,
+"to": "DATA1D_STR",
+"to_port": 0
+} ]
+
+[resource]
+script = ExtResource( 3 )
+GData = SubResource( 9 )
