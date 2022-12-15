@@ -1,12 +1,8 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	# center the window
 	OS.center_window()
+
+	# load editor
 	print("[Main] Load Editor: ", get_tree().change_scene("res://gui/Editor.tscn"))

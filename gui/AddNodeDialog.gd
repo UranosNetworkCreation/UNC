@@ -1,5 +1,9 @@
 extends WindowDialog
 
+# ------------------------------
+# This is an old class which is 
+# not needed anymore!
+# ------------------------------
 
 # Declare member variables here. Examples:
 # var a = 2

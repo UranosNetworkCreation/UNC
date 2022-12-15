@@ -1,6 +1,6 @@
 extends "../../gNode.gd"
 
-
+# slots
 const DATA2D_INPUT = 0;
 const SIZEX_INPUT = 1;
 const SIZEY_INPUT = 2;
@@ -8,11 +8,7 @@ const SIZEY_INPUT = 2;
 const DATA1D_OUTPUT = 0;
 const SIZE_OUTPUT = 1;
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
+# normal calculation process
 func updateCalc():
 	var result = []
 	var input = getDataOfPinConn(DATA2D_INPUT)

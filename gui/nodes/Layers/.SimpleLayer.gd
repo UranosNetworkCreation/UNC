@@ -1,12 +1,16 @@
 extends "../.Layer.gd"
 
+# slots
 const DATA1D_INPUT = 0
 const SIZE_INPUT = 1
 const AFUNC_INPUT = 2
 const DATA1D_OUTPUT = 0
 
+# Vars to compare outputs
 var lastSizeInput = -1
 var lastData1DSize = -1
+
+# Layer index
 var LayerIdx
 
 var under_weights : Array
@@ -55,6 +59,7 @@ func init_editor_controls():
 	print("[SimpleLayer] Connect with Executer: ", Executer.connect("PrepareBackprop", self, "prepareBackprop"))
 
 func backCalc():
+	# get current plugin
 	var CurrentPlugin = PluginLoader.getCurrentPlugin()
 	var gradient
 	if(is_output_layer):
@@ -86,13 +91,16 @@ func backCalc():
 	backCalcResults = [gradient]
 
 func prepareBackprop():
+	# get next node
 	var under_node = getNodeOfConnection(DATA1D_OUTPUT, true)
 	if(under_node.has_method("getCurrentWeights")):
+		# get weights of next layer
 		under_weights = under_node.getCurrentWeights()
 		is_output_layer = false
 	else:
 		is_output_layer = true
 
+# returns true if the layer shape changed
 func hasShapeChanged():
 	if(lastSizeInput != getDataOfPinConn(SIZE_INPUT)):
 		lastSizeInput = getDataOfPinConn(SIZE_INPUT)
@@ -102,8 +110,11 @@ func hasShapeChanged():
 		return true
 	return false
 
+# normal calculation process
 func updateCalc():
 	outputs = []
+
+	# Generate new layer if the shape changed
 	if(hasShapeChanged()):
 		print("[SimpleLayer] Building Layer, size changed ...")
 		LayerIdx = PluginLoader.getCurrentPlugin().build_layer(
@@ -112,6 +123,7 @@ func updateCalc():
 			PoolRealArray()
 		)
 	print("[SimpleLayer] Call Layer and update output ...")
+	# Call layer and append result to outputs
 	outputs.append(
 		PluginLoader.getCurrentPlugin().simple_layer_call(
 			LayerIdx,
@@ -120,5 +132,6 @@ func updateCalc():
 		)
 	)
 
+# Returns current weights
 func getCurrentWeights():
 	return PluginLoader.getCurrentPlugin().get_layer_weights(LayerIdx)
