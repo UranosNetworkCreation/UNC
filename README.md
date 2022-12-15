@@ -1,5 +1,7 @@
 # UranosNetworkCreation
 
+Projektseite: https://github.com/UranosNetworkCreation/Projektvorstellung
+
 ## The plan
 - Design a fast program to create neural networks in gdnative.
 - Design an own extension format
