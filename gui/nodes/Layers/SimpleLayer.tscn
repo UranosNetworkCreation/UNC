@@ -32,6 +32,12 @@ slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = true
 slot/3/right_type = 2
 slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
 slotCount = 4
 
@@ -63,3 +69,12 @@ margin_right = 239.0
 margin_bottom = 95.0
 text = "Result (Data1D)"
 align = 2
+
+[node name="LearningRate" type="SpinBox" parent="."]
+margin_left = 16.0
+margin_top = 100.0
+margin_right = 239.0
+margin_bottom = 124.0
+step = 0.001
+value = 0.1
+prefix = "learning rate:"

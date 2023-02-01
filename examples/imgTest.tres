@@ -1,0 +1,391 @@
+[gd_resource type="Resource" load_steps=41 format=2]
+
+[ext_resource path="res://kernel/resources/node.gd" type="Script" id=1]
+[ext_resource path="res://kernel/resources/unc.gd" type="Script" id=2]
+[ext_resource path="res://kernel/resources/graphData.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 540.953, 995 )
+data = [ 0.5 ]
+name = "Layer467"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 540, 800 )
+data = [ 0.5 ]
+name = "Layer432"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 580, 600 )
+data = [ 0.5 ]
+name = "@Layer419@415"
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 560, 420 )
+data = [ 0.5 ]
+name = "@Layer@421"
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 340, 480 )
+data = [ 320.0 ]
+name = "@INT@446"
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 220, 680 )
+data = [ 160.0 ]
+name = "@INT441@440"
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 260, 780 )
+data = [ 80.0 ]
+name = "@INT438@458"
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/simplify-data.tscn"
+offset = Vector2( 980, 100 )
+data = [ 10.0 ]
+name = "@SimplifyData430@433"
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/simplify-data.tscn"
+offset = Vector2( 600, 120 )
+data = [ 4.0 ]
+name = "@SimplifyData@427"
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/Normalize.tscn"
+offset = Vector2( 300, 200 )
+data = [ 256.0 ]
+name = "@NormalizeData1D@468"
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Input/image.tscn"
+offset = Vector2( -100, 200 )
+data = [ "C:/Users/Henry/Downloads/kenney_blockpack/PNG/Default (64px)/tileLava_4.png" ]
+name = "@image@462"
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 280, 940 )
+data = [ 40.0 ]
+name = "@INT473@480"
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 540, 1200 )
+data = [ 0.5 ]
+name = "Layer"
+
+[sub_resource type="Resource" id=14]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 240, 1200 )
+data = [ 20.0 ]
+name = "INT"
+
+[sub_resource type="Resource" id=15]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 557.786, 1431.4 )
+data = [ 0.1 ]
+name = "@Layer@498"
+
+[sub_resource type="Resource" id=16]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Activation/Sigmoid.tscn"
+offset = Vector2( 240, 580 )
+data = [  ]
+name = "@Sigmoid@434"
+
+[sub_resource type="Resource" id=17]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 540.953, 995 )
+data = [ 0.5 ]
+name = "Layer467"
+
+[sub_resource type="Resource" id=18]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 540, 800 )
+data = [ 0.5 ]
+name = "Layer432"
+
+[sub_resource type="Resource" id=19]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 580, 600 )
+data = [ 0.5 ]
+name = "@Layer419@415"
+
+[sub_resource type="Resource" id=20]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 560, 420 )
+data = [ 0.5 ]
+name = "@Layer@421"
+
+[sub_resource type="Resource" id=21]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 340, 480 )
+data = [ 320.0 ]
+name = "@INT@446"
+
+[sub_resource type="Resource" id=22]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 220, 680 )
+data = [ 160.0 ]
+name = "@INT441@440"
+
+[sub_resource type="Resource" id=23]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 260, 780 )
+data = [ 80.0 ]
+name = "@INT438@458"
+
+[sub_resource type="Resource" id=24]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/simplify-data.tscn"
+offset = Vector2( 980, 100 )
+data = [ 10.0 ]
+name = "@SimplifyData430@433"
+
+[sub_resource type="Resource" id=25]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/simplify-data.tscn"
+offset = Vector2( 600, 120 )
+data = [ 4.0 ]
+name = "@SimplifyData@427"
+
+[sub_resource type="Resource" id=26]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/Normalize.tscn"
+offset = Vector2( 300, 200 )
+data = [ 256.0 ]
+name = "@NormalizeData1D@468"
+
+[sub_resource type="Resource" id=27]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Input/image.tscn"
+offset = Vector2( -100, 200 )
+data = [ "C:/Users/Henry/Downloads/kenney_blockpack/PNG/Default (64px)/tileLava_4.png" ]
+name = "@image@462"
+
+[sub_resource type="Resource" id=28]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 280, 940 )
+data = [ 40.0 ]
+name = "@INT473@480"
+
+[sub_resource type="Resource" id=29]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 540, 1200 )
+data = [ 0.5 ]
+name = "Layer"
+
+[sub_resource type="Resource" id=30]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 240, 1200 )
+data = [ 20.0 ]
+name = "INT"
+
+[sub_resource type="Resource" id=31]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 557.786, 1431.4 )
+data = [ 0.5 ]
+name = "@Layer@498"
+
+[sub_resource type="Resource" id=32]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 180, 1380 )
+data = [ 10.0 ]
+name = "@INT@504"
+
+[sub_resource type="Resource" id=33]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Activation/Sigmoid.tscn"
+offset = Vector2( 60, 1080 )
+data = [  ]
+name = "@Sigmoid@434"
+
+[sub_resource type="Resource" id=34]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Layers/SimpleLayer.tscn"
+offset = Vector2( 540, 1620 )
+data = [ 0.5 ]
+name = "@Layer@510"
+
+[sub_resource type="Resource" id=35]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Constants/INT.tscn"
+offset = Vector2( 215.647, 1579.67 )
+data = [ 5.0 ]
+name = "@INT@516"
+
+[sub_resource type="Resource" id=36]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Convert/DATA1D_STR.tscn"
+offset = Vector2( 880, 1640 )
+data = [  ]
+name = "DATA1D_STR"
+
+[sub_resource type="Resource" id=37]
+script = ExtResource( 3 )
+nodes = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ]
+conns = [ {
+"from": "@SimplifyData@427",
+"from_port": 0,
+"to": "@SimplifyData430@433",
+"to_port": 0
+}, {
+"from": "@SimplifyData430@433",
+"from_port": 0,
+"to": "@Layer@421",
+"to_port": 0
+}, {
+"from": "@Layer@421",
+"from_port": 0,
+"to": "@Layer419@415",
+"to_port": 0
+}, {
+"from": "@Sigmoid@434",
+"from_port": 0,
+"to": "@Layer@421",
+"to_port": 2
+}, {
+"from": "@Sigmoid@434",
+"from_port": 0,
+"to": "@Layer419@415",
+"to_port": 2
+}, {
+"from": "@INT@446",
+"from_port": 0,
+"to": "@Layer@421",
+"to_port": 1
+}, {
+"from": "@INT441@440",
+"from_port": 0,
+"to": "@Layer419@415",
+"to_port": 1
+}, {
+"from": "@Layer419@415",
+"from_port": 0,
+"to": "Layer432",
+"to_port": 0
+}, {
+"from": "@Sigmoid@434",
+"from_port": 0,
+"to": "Layer432",
+"to_port": 2
+}, {
+"from": "@image@462",
+"from_port": 0,
+"to": "@NormalizeData1D@468",
+"to_port": 0
+}, {
+"from": "@NormalizeData1D@468",
+"from_port": 0,
+"to": "@SimplifyData@427",
+"to_port": 0
+}, {
+"from": "Layer432",
+"from_port": 0,
+"to": "Layer467",
+"to_port": 0
+}, {
+"from": "@Sigmoid@434",
+"from_port": 0,
+"to": "Layer467",
+"to_port": 2
+}, {
+"from": "@INT438@458",
+"from_port": 0,
+"to": "Layer432",
+"to_port": 1
+}, {
+"from": "@INT473@480",
+"from_port": 0,
+"to": "Layer467",
+"to_port": 1
+}, {
+"from": "Layer467",
+"from_port": 0,
+"to": "Layer",
+"to_port": 0
+}, {
+"from": "@Sigmoid@434",
+"from_port": 0,
+"to": "Layer",
+"to_port": 2
+}, {
+"from": "INT",
+"from_port": 0,
+"to": "Layer",
+"to_port": 1
+}, {
+"from": "Layer",
+"from_port": 0,
+"to": "@Layer@498",
+"to_port": 0
+}, {
+"from": "@Sigmoid@434",
+"from_port": 0,
+"to": "@Layer@498",
+"to_port": 2
+}, {
+"from": "@INT@504",
+"from_port": 0,
+"to": "@Layer@498",
+"to_port": 1
+}, {
+"from": "@Layer@498",
+"from_port": 0,
+"to": "@Layer@510",
+"to_port": 0
+}, {
+"from": "@INT@516",
+"from_port": 0,
+"to": "@Layer@510",
+"to_port": 1
+}, {
+"from": "@Sigmoid@434",
+"from_port": 0,
+"to": "@Layer@510",
+"to_port": 2
+}, {
+"from": "@Layer@510",
+"from_port": 0,
+"to": "DATA1D_STR",
+"to_port": 0
+} ]
+
+[resource]
+script = ExtResource( 2 )
+GData = SubResource( 37 )

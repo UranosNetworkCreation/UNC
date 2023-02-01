@@ -21,4 +21,4 @@ margin_left = 16.0
 margin_top = 24.0
 margin_right = 182.0
 margin_bottom = 48.0
-max_value = 256.0
+max_value = 1e+06

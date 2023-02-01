@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gui/nodes/Operators/.Count.gd" type="Script" id=1]
+
+[node name="CountData1D" type="GraphNode"]
+margin_right = 257.0
+margin_bottom = 102.0
+custom_constants/separation = 5
+title = "Count Data1D"
+show_close = true
+slot/0/left_enabled = true
+slot/0/left_type = 2
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 1
+slot/1/right_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+slotCount = 1
+
+[node name="Data1D" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 241.0
+margin_bottom = 38.0
+text = "Data1D"
+
+[node name="size" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 43.0
+margin_right = 241.0
+margin_bottom = 57.0
+text = "size"
+align = 2
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 62.0
+margin_right = 241.0
+margin_bottom = 93.0
+text = "Note: This node will not work during the backcalc process."
+autowrap = true

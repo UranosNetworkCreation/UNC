@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://kernel/Editor.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://gui/MenuBar.gd" type="Script" id=6]
 [ext_resource path="res://gui/NodesContainer.gd" type="Script" id=7]
 [ext_resource path="res://gui/Inspector.gd" type="Script" id=8]
+[ext_resource path="res://gui/Dialogs/Loading.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/Training.gd" type="Script" id=10]
 
 [sub_resource type="Theme" id=6]
@@ -309,6 +310,9 @@ margin_right = -5.0
 margin_right = 46.0
 margin_bottom = 22.0
 text = "Ready"
+
+[node name="LoadingDialog" parent="." instance=ExtResource( 9 )]
+info = "Doing something ..."
 
 [connection signal="pressed" from="MenuBar/HBoxContainer/run" to="." method="_on_run_pressed"]
 [connection signal="connection_request" from="HSplitContainer/HSplitContainer/GraphEdit" to="HSplitContainer/HSplitContainer/GraphEdit" method="_on_GraphEdit_connection_request"]

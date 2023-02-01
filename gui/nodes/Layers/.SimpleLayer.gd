@@ -15,7 +15,7 @@ var LayerIdx
 
 var under_weights : Array
 var is_output_layer = false
-var learning_rate = 1.0
+var learning_rate_input : SpinBox
 
 func init_editor_controls():
 	# [Example usage]:
@@ -57,7 +57,8 @@ func init_editor_controls():
 		#print(result)
 
 	print("[SimpleLayer] Connect with Executer: ", Executer.connect("PrepareBackprop", self, "prepareBackprop"))
-
+	learning_rate_input = get_node("LearningRate")
+	
 func backCalc():
 	# get current plugin
 	var CurrentPlugin = PluginLoader.getCurrentPlugin()
@@ -73,7 +74,7 @@ func backCalc():
 			PoolRealArray(),				# Not needed (under weights)
 			getDataOfPinConn(AFUNC_INPUT),	# Activation func index
 			true, 							# is output layer?
-			learning_rate					# learning rate
+			learning_rate_input.value		# learning rate
 		)
 	else:
 		var under_grad = getDataOfPinConn(DATA1D_OUTPUT, true)
@@ -85,7 +86,7 @@ func backCalc():
 			under_weights,					# weights before backprop calculation of next layer
 			getDataOfPinConn(AFUNC_INPUT),	# Activation func index
 			false,							# is output layer?
-			learning_rate					# learning rate
+			learning_rate_input.value		# learning rate
 		)
 
 	backCalcResults = [gradient]
