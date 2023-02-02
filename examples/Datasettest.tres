@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://kernel/resources/node.gd" type="Script" id=1]
+[ext_resource path="res://kernel/resources/graphData.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+type = "res://gui/Training/inputNodePreset.tscn"
+offset = Vector2( 171, 149 )
+data = [ "" ]
+name = "inputNodePreset"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+type = "res://gui/Training/outputNodePreset.tscn"
+offset = Vector2( 637, 126 )
+data = [ "" ]
+name = "outputNodePreset"
+
+[resource]
+script = ExtResource( 2 )
+nodes = [ SubResource( 1 ), SubResource( 2 ) ]
+conns = [  ]

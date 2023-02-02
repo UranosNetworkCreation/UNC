@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/Graph.gd" type="Script" id=1]
+[ext_resource path="res://gui/Basic/mouseFollower.gd" type="Script" id=2]
+[ext_resource path="res://gui/Training/DatasetEditor.gd" type="Script" id=3]
+[ext_resource path="res://assets/fontello/font/fontello.tres" type="DynamicFont" id=4]
+
+[node name="DatasetEditor" type="WindowDialog"]
+margin_right = 869.0
+margin_bottom = 416.0
+popup_exclusive = true
+window_title = "Dataset editor"
+resizable = true
+script = ExtResource( 3 )
+SectionPth = NodePath("..")
+AddNodeMFollowerPth = NodePath("AddNodeMouseFollower/Label")
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 44.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 5.0
+margin_top = -10.0
+margin_bottom = 10.0
+
+[node name="AddInput" type="Button" parent="Panel/HBoxContainer"]
+margin_right = 27.0
+margin_bottom = 23.0
+hint_tooltip = "Add input node"
+custom_fonts/font = ExtResource( 4 )
+text = "I"
+
+[node name="AddOutput" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 31.0
+margin_right = 58.0
+margin_bottom = 23.0
+hint_tooltip = "Add output node"
+custom_fonts/font = ExtResource( 4 )
+text = "O"
+
+[node name="VSeparator" type="VSeparator" parent="Panel/HBoxContainer"]
+margin_left = 62.0
+margin_right = 66.0
+margin_bottom = 23.0
+
+[node name="New" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 70.0
+margin_right = 82.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 4 )
+text = "N"
+
+[node name="Save" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 86.0
+margin_right = 98.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 4 )
+text = "S"
+
+[node name="SaveAs" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 102.0
+margin_right = 114.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 4 )
+text = "A"
+
+[node name="Open" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 118.0
+margin_right = 144.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 4 )
+text = "L"
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 47.0
+margin_right = -10.0
+margin_bottom = -10.0
+script = ExtResource( 1 )
+
+[node name="AddNodeMouseFollower" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="AddNodeMouseFollower"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Add node"
+script = ExtResource( 2 )
+
+[node name="SaveDialog" type="FileDialog" parent="."]
+margin_right = 400.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 500, 250 )
+window_title = "Datei speichern"
+filters = PoolStringArray( "*.tres", "*.res" )
+
+[node name="OpenDialog" type="FileDialog" parent="."]
+margin_right = 360.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 500, 250 )
+window_title = "Datei öffnen"
+mode = 0
+filters = PoolStringArray( "*.tres", "*.res" )
+
+[connection signal="about_to_show" from="." to="." method="_on_DatasetEditor_about_to_show"]
+[connection signal="button_down" from="Panel/HBoxContainer/AddInput" to="." method="_on_AddInput_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/AddOutput" to="." method="_on_AddOutput_button_down"]
+[connection signal="pressed" from="Panel/HBoxContainer/New" to="." method="_on_New_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/SaveAs" to="." method="_on_SaveAs_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Open" to="." method="_on_Open_pressed"]
+[connection signal="connection_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_connection_request"]
+[connection signal="delete_nodes_request" from="GraphEdit" to="GraphEdit" method="_on_GraphEdit_delete_nodes_request"]
+[connection signal="file_selected" from="SaveDialog" to="." method="_on_SaveDialog_file_selected"]
+[connection signal="file_selected" from="OpenDialog" to="." method="_on_OpenDialog_file_selected"]

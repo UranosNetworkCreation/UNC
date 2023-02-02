@@ -13,13 +13,17 @@ const ResDataSync = preload("res://gui//ResDataSync.gd")
 
 # vars
 var grapednode
+var current_path = ""
 
 # GraphEditor
 var GEdit : GraphEdit
 
 # node presets
-var inputNodePreset = preload("res://gui/Training/inputNodePreset.tscn")
-var outputNodePreset = preload("res://gui/Training/outputNodePreset.tscn")
+const inputNodePresetPath = "res://gui/Training/inputNodePreset.tscn"
+const outputNodePresetPath = "res://gui/Training/outputNodePreset.tscn"
+
+var inputNodePreset = preload(inputNodePresetPath)
+var outputNodePreset = preload(outputNodePresetPath)
 
 # slot types
 const SLOTTYPE_INT = 1
@@ -39,6 +43,7 @@ func _ready():
 func buildInputNode():
 	# instance preset
 	var result = inputNodePreset.instance()
+	result.packedPath = inputNodePresetPath
 	# get selected node
 	var selectedNode = Section.BeginSelector.getSelectedNode()
 	
@@ -61,6 +66,7 @@ func buildInputNode():
 func buildOutputNode():
 	# instance preset
 	var result = outputNodePreset.instance()
+	result.packedPath = outputNodePresetPath
 	# get selected node
 	var selectedNode : GraphNode = Section.EndSelector.getSelectedNode()
 	
@@ -99,6 +105,9 @@ func _on_AddOutput_button_down():
 func _on_AddInput_button_down():
 	AddNodeMouseFollower.grap()
 	grapednode = buildInputNode()
+	
+func _on_OptionBtnSelected():
+	print("Item selected!")
 
 # collect Data of node
 func collectData(node):
@@ -116,3 +125,39 @@ func getDataSets() -> Array:
 		result.push_back(dataset)
 	print("[DatasetEditor] Datasets: ", result)
 	return result
+	
+func clear_graph():
+	GEdit.clear_connections()
+	
+func loadDataSets(datasets : Array):
+	pass
+	
+func save(path):
+	var data = GEdit.getData()
+	ResourceSaver.save(path, data)
+
+func _on_New_pressed():
+	current_path = ""
+	GEdit.reset();
+
+func _on_Save_pressed():
+	if(current_path == ""):
+		$SaveDialog.popup_centered()
+		return
+	save(current_path)
+
+func _on_SaveAs_pressed():
+	$SaveDialog.popup_centered()
+
+
+func _on_SaveDialog_file_selected(path):
+	current_path = path
+	save(path)
+
+
+func _on_Open_pressed():
+	$OpenDialog.popup_centered()
+
+func _on_OpenDialog_file_selected(path):
+	current_path = path
+	GEdit.loadData(ResourceLoader.load(current_path))

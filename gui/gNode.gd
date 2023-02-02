@@ -1,4 +1,4 @@
-extends GraphNode
+extends "dataNode.gd"
 
 # Base class for all nodes
 
@@ -7,7 +7,6 @@ var phantomInput
 var preview
 
 # packed
-var packedPath : String
 var packed : PackedScene
 
 # forward calculation
@@ -36,14 +35,6 @@ const CONN_NAME = 0
 const CONN_PORT = 1
 const NO_CONN = ["-1", "-1"]
 
-# Preload Resource Syncronizer
-const ResDataSync = preload("ResDataSync.gd")
-# Preload node data resource
-const NodeData = preload("res://kernel/resources/node.gd")
-
-# ResDataSync instance
-var DataSync : ResDataSync
-
 # node specific virtual functions
 func init_editor_controls():
 	pass
@@ -55,8 +46,7 @@ func backCalc():
 	pass
 
 func init_as_node(packedPth):
-	# Assign values to vars
-	packedPath = packedPth
+	.init_as_node(packedPth)
 
 	# Connect functions with signals
 	print("[gNode] Connect signal: ", connect("close_request", self, "_on_close"))
@@ -71,7 +61,6 @@ func init_as_node(packedPth):
 
 	# Assign nodes to vars
 	GraphE = get_parent()
-	DataSync = ResDataSync.new(self)
 
 func init_as_preview(phantomID, previewInst, packedPth):
 	# Assign values to vars
@@ -152,19 +141,6 @@ func getPinValue(var id : int):
 
 	# return the requested entry of the array
 	return outputs[id]
-
-# Returns the user settings from the node as a NodeData resource
-func getNodeData() -> NodeData:
-	# Create a new Data container
-	var data : NodeData = NodeData.new()
-
-	# collect node's data
-	data.data = DataSync.collectData()
-	data.offset = self.offset
-	data.type = self.packedPath
-	data.name = self.name
-
-	return data
 
 # Returns a specific value of the self calculated output during the backcalc
 func getBackCalcValue(var id : int):

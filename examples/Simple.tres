@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://kernel/resources/node.gd" type="Script" id=1]
+[ext_resource path="res://kernel/resources/graphData.gd" type="Script" id=2]
+[ext_resource path="res://kernel/resources/unc.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Input/data1D.tscn"
+offset = Vector2( -254, 120 )
+data = [ "" ]
+name = "data1D"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+type = "res://gui/nodes/Output/print.tscn"
+offset = Vector2( 223, 260 )
+data = [  ]
+name = "print"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+nodes = [ SubResource( 1 ), SubResource( 2 ) ]
+conns = [  ]
+
+[resource]
+script = ExtResource( 3 )
+GData = SubResource( 3 )
